@@ -33,7 +33,7 @@ EOF
     echo "Created $folder with files."
 
 # ---------- GIT PUSH ----------
-elif [ "$1" = "-git" ]; then
+elif [ "$1" = "-g" ]; then
     echo "Enter commit message:"
     read msg
 
