@@ -1,0 +1,204 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:600,300);
+
+body {
+  margin: 0;
+}
+
+.frame {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to top right, #eebe6c 0%, #ca7c4e 100%);
+  color: #786450;
+  font-family: "Open Sans", Helvetica, sans-serif;
+  box-sizing: border-box;
+  padding: 20px;
+}
+
+/* CENTER CARD - Removed absolute positioning for better flow */
+.center {
+  display: flex;
+  flex-direction: row;
+  background: #fff;
+  width: 100%;
+  max-width: 400px; /* Adjusted to fit content better */
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* PROFILE SECTION */
+.profile {
+  flex: 1.5; /* Takes up more space than stats in row mode */
+  padding: 30px 20px;
+  text-align: center;
+}
+
+.profile .image {
+  position: relative;
+  width: 70px;
+  height: 70px;
+  margin: 0 auto;
+}
+
+.profile .image .circle-1,
+.profile .image .circle-2 {
+  position: absolute;
+  box-sizing: border-box;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 50%;
+  transition: all 1.5s ease-in-out;
+}
+
+.profile .image .circle-1 {
+  width: 76px;
+  height: 76px;
+  top: -3px;
+  left: -3px;
+  border-color: #786450 #786450 #786450 transparent;
+}
+
+.profile .image .circle-2 {
+  width: 82px;
+  height: 82px;
+  top: -6px;
+  left: -6px;
+  border-color: #786450 transparent #786450 #786450;
+}
+
+.profile .image img {
+  display: block;
+  border-radius: 50%;
+  background: #f5e8df;
+}
+
+.profile .image:hover .circle-1 {
+  transform: rotate(360deg);
+}
+.profile .image:hover .circle-2 {
+  transform: rotate(-360deg);
+}
+
+.profile .name {
+  font-size: 15px;
+  font-weight: 600;
+  margin-top: 20px;
+}
+.profile .job {
+  font-size: 11px;
+}
+
+.profile .actions {
+  margin-top: 25px;
+}
+.profile .actions .btn {
+  display: block;
+  width: 120px;
+  height: 30px;
+  margin: 0 auto 10px;
+  background: none;
+  border: 1px solid #786450;
+  border-radius: 15px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  color: #786450;
+}
+
+.profile .actions .btn:hover {
+  background: #786450;
+  color: #fff;
+}
+
+/* STATS SECTION */
+.stats {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.stats .box {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #f5e8df;
+  border-bottom: 1px solid #fff;
+  transition: all 0.4s ease-in-out;
+  padding: 15px;
+}
+
+.stats .box:last-child {
+  border-bottom: none;
+}
+.stats .box:hover {
+  background: #e1cfc2;
+  cursor: pointer;
+}
+
+.stats .value {
+  font-size: 18px;
+  font-weight: 600;
+  display: block;
+}
+.stats .parameter {
+  font-size: 11px;
+  display: block;
+}
+
+/* RESPONSIVE BREAKPOINT */
+@media (max-width: 400px) {
+  .center {
+    flex-direction: column; /* Stack profile on top of stats */
+  }
+
+  .stats {
+    flex-direction: row; /* Layout stats horizontally on mobile */
+  }
+
+  .stats .box {
+    border-bottom: none;
+    border-right: 1px solid #fff;
+  }
+
+  .stats .box:last-child {
+    border-right: none;
+  }
+}
+/* Better Button UX */
+.profile .actions .btn {
+  width: 100%; /* Full width is easier for thumbs on mobile */
+  max-width: 200px;
+  height: 44px; /* Optimal touch height */
+  margin-bottom: 12px;
+  font-size: 14px; /* Easier to read */
+  letter-spacing: 0.5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent; /* Removes the blue box on tap */
+}
+
+/* Tactile Feedback */
+.profile .actions .btn:active {
+  transform: scale(0.98);
+  background-color: #786450;
+  color: white;
+}
+
+/* Stat Box Polish */
+.stats .box {
+  padding: 20px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.5); /* Subtle separation */
+}
+
+.stats .value {
+  font-size: 20px;
+  color: #554433; /* Darker for better readability */
+}
