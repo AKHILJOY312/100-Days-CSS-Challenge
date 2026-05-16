@@ -1,0 +1,360 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400);
+
+/* =========================
+   DEFAULT THEME VARIABLES
+========================= */
+
+:root {
+  --primary: #767f9e;
+  --secondary: #daa464;
+  --accent: #dec384;
+  --light: #e8ddb4;
+
+  --btn-shadow: #b07d43;
+  --text-dark: #5c6480;
+}
+
+/* =========================
+   THEMES
+========================= */
+
+.theme-ocean {
+  --primary: #3a92af;
+  --secondary: #5ca05a;
+  --accent: #c7e8ca;
+  --light: #eef7f0;
+
+  --btn-shadow: #3e6d3d;
+  --text-dark: #2d5968;
+}
+
+.theme-dark {
+  --primary: #222831;
+  --secondary: #393e46;
+  --accent: #00adb5;
+  --light: #eeeeee;
+
+  --btn-shadow: #111418;
+  --text-dark: #1d252d;
+}
+
+.theme-sunset {
+  --primary: #767f9e;
+  --secondary: #daa464;
+  --accent: #dec384;
+  --light: #e8ddb4;
+
+  --btn-shadow: #b07d43;
+  --text-dark: #5c6480;
+}
+
+/* =========================
+   GLOBAL
+========================= */
+
+body {
+  margin: 0;
+  background: var(--primary);
+  font-family: "Open Sans", Helvetica, sans-serif;
+  color: var(--light);
+
+  transition: all 0.4s ease;
+}
+
+/* =========================
+   THEME SWITCHER
+========================= */
+
+.theme-switcher {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  display: flex;
+  gap: 10px;
+}
+
+.theme-btn {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 6px;
+
+  background: var(--secondary);
+  color: white;
+
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: bold;
+
+  transition: 0.3s;
+}
+
+.theme-btn:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
+}
+
+/* =========================
+   FRAME
+========================= */
+
+.frame {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  width: 400px;
+  height: 400px;
+
+  margin-top: -200px;
+  margin-left: -200px;
+
+  border-radius: 8px;
+
+  box-shadow: 1px 2px 15px rgba(0, 0, 0, 0.3);
+
+  background: linear-gradient(
+    to top right,
+    var(--primary) 0%,
+    var(--secondary) 50%,
+    var(--light) 100%
+  );
+
+  color: #fff;
+
+  transition: all 0.4s ease;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* =========================
+   CARD
+========================= */
+
+.center {
+  position: absolute;
+
+  width: 300px;
+  height: 260px;
+
+  top: 70px;
+  left: 50px;
+
+  background: var(--accent);
+
+  box-shadow: 8px 10px 20px rgba(0, 0, 0, 0.2);
+
+  border-radius: 10px;
+
+  transition: all 0.4s ease;
+}
+
+/* =========================
+   TITLE
+========================= */
+
+.title {
+  font-size: 16px;
+  color: var(--text-dark);
+
+  line-height: 50px;
+  height: 50px;
+
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+
+  text-align: center;
+  font-weight: bold;
+}
+
+/* =========================
+   DROPZONE
+========================= */
+
+.dropzone {
+  position: absolute;
+  z-index: 1;
+
+  box-sizing: border-box;
+
+  display: table;
+  table-layout: fixed;
+
+  width: 120px;
+  height: 90px;
+
+  top: 80px;
+  left: 90px;
+
+  border: 2px dashed var(--primary);
+  border-radius: 8px;
+
+  text-align: center;
+  overflow: hidden;
+
+  background: rgba(255, 255, 255, 0.15);
+
+  transition: all 0.3s ease;
+}
+
+.dropzone.is-dragover {
+  border-color: var(--secondary);
+  background: var(--light);
+}
+
+.dropzone .content {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.dropzone .upload {
+  margin-top: 8px;
+  filter: brightness(0.6);
+}
+
+.dropzone .filename {
+  display: block;
+
+  color: var(--text-dark);
+
+  font-size: 13px;
+  line-height: 18px;
+
+  padding: 0 6px;
+}
+
+.dropzone .input {
+  position: absolute;
+  inset: 0;
+
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* =========================
+   UPLOAD BUTTON
+========================= */
+
+.upload-btn {
+  position: absolute;
+
+  width: 150px;
+  height: 42px;
+
+  left: 75px;
+  bottom: 24px;
+
+  background: var(--secondary);
+  color: white;
+
+  border-radius: 6px;
+
+  text-align: center;
+  line-height: 42px;
+
+  font-size: 14px;
+  font-weight: bold;
+
+  box-shadow: 0 4px 0 var(--btn-shadow);
+
+  cursor: pointer;
+
+  transition: all 0.25s ease;
+}
+
+.upload-btn:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 4px 0 var(--btn-shadow),
+    0 8px 18px rgba(0, 0, 0, 0.2);
+}
+
+/* =========================
+   PROGRESS BAR
+========================= */
+
+.bar {
+  position: absolute;
+  z-index: 1;
+
+  width: 300px;
+  height: 4px;
+
+  top: 49px;
+  left: 0;
+
+  background: var(--primary);
+
+  transition: all 3s ease-out;
+
+  transform: scaleX(0);
+  transform-origin: 0 0;
+}
+
+.bar.active {
+  transform: scaleX(1);
+}
+
+/* =========================
+   ICONS
+========================= */
+
+.syncing {
+  position: absolute;
+  top: 109px;
+  left: 134px;
+
+  opacity: 0;
+}
+
+.syncing.active {
+  animation: syncing 3.2s ease-in-out;
+}
+
+.done {
+  position: absolute;
+  top: 112px;
+  left: 132px;
+
+  opacity: 0;
+}
+
+.done.active {
+  animation: done 0.5s ease-in 3.2s;
+  animation-fill-mode: both;
+}
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes syncing {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  90% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: rotate(360deg);
+    opacity: 0;
+  }
+}
+
+@keyframes done {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
