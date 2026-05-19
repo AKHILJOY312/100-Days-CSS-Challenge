@@ -1,0 +1,124 @@
+.frame {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  height: 400px;
+  margin-top: -200px;
+  margin-left: -200px;
+  border-radius: 2px;
+  box-shadow: 1px 2px 10px 0px rgba(0, 0, 0, 0.3);
+  background: #fff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow: hidden;
+}
+
+.center {
+  position: absolute;
+  width: 260px;
+  height: 260px;
+  top: 70px;
+  left: 70px;
+  background: #353535;
+  border-radius: 3px;
+  box-shadow: 8px 10px 15px 0 rgba(0, 0, 0, 0.3);
+}
+
+.stripes {
+  position: relative;
+  top: -67px;
+  left: -100px;
+  width: 600px;
+  transform: rotate(45deg);
+}
+
+/* Base stripe wrapper layout */
+.stripes .stripe,
+.stripes .bent-stripe {
+  position: relative;
+  width: 600px;
+  height: 3px;
+  margin-bottom: 16px;
+}
+
+/* Unified Left Part for standard stripes */
+.stripes .stripe::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 300px;
+  height: 3px;
+  background: #353535;
+}
+
+/* Unified Right Part bending downward toward the lower left floor */
+.stripes .stripe::after {
+  content: "";
+  position: absolute;
+  left: 300px;
+  top: 0;
+  width: 300px;
+  height: 3px;
+  background: #353535;
+  transform-origin: left center;
+  transform: rotate(12deg);
+}
+
+/* Target the specific anomaly stripe */
+.bent-stripe .part {
+  position: absolute;
+  top: 0;
+  height: 3px;
+  background: #353535;
+}
+
+.bent-stripe .part.left {
+  left: 0;
+  width: 300px;
+}
+
+/* The actual illusion breaker: bending opposite or at a different degree */
+.bent-stripe .part.right {
+  left: 300px;
+  width: 300px;
+  transform-origin: left center;
+  transform: rotate(-12deg);
+}
+
+/* Polygon Styles */
+.polygon {
+  position: absolute;
+  width: 160px;
+  height: 140px;
+  top: 60px;
+  left: 50px;
+}
+
+.polygon .light {
+  fill: #eee;
+  transition: all 0.5s ease-in-out;
+}
+
+.polygon .middle {
+  fill: #ccc;
+  transition: all 0.5s ease-in-out;
+}
+
+.polygon .dark {
+  fill: #aaa;
+  transition: all 0.5s ease-in-out;
+}
+
+.polygon:hover .light {
+  fill: #aaa;
+}
+
+.polygon:hover .middle {
+  fill: #eee;
+}
+
+.polygon:hover .dark {
+  fill: #ccc;
+}
