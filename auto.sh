@@ -54,5 +54,5 @@ else
     echo "Usage: ./script.sh [flag]"
     echo "Flags:"
     echo "  -f    Create a new day folder"
-    echo "  -git  Push changes to GitHub"
+    echo "  -g  Push changes to GitHub"
 fi
