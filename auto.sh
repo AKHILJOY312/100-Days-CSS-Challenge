@@ -34,10 +34,20 @@ EOF
 
 # ---------- GIT PUSH ----------
 elif [ "$1" = "-g" ]; then
-    echo "Enter commit message:"
-    read msg
+    # Automatically find the latest Day_* folder number
+    # It lists folders matching 'Day_*', extracts the numbers, sorts them numerically, and takes the highest one.
+    latest_day=$(ls -d Day_* 2>/dev/null | sed 's/Day_//' | sort -n | tail -n 1)
 
-    # Error handling: Check if message is empty
+    # Fallback if no Day_X folder is found
+    if [ -z "$latest_day" ]; then
+        echo "No Day_* folders found. Enter commit message manually:"
+        read msg
+    else
+        msg="Day#$latest_day"
+        echo "Automated commit message: $msg"
+    fi
+
+    # Error handling: Check if message is empty (in case fallback was triggered)
     if [ -z "$msg" ]; then
         echo "Error: Commit message cannot be empty. Push aborted."
         exit 1
@@ -54,5 +64,5 @@ else
     echo "Usage: ./script.sh [flag]"
     echo "Flags:"
     echo "  -f    Create a new day folder"
-    echo "  -g  Push changes to GitHub"
+    echo "  -g    Push changes to GitHub"
 fi
