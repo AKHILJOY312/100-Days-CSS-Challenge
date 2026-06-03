@@ -34,4 +34,12 @@ This creates the folder and boilerplate files for a new challenge day.
 
 ## Progress
 
-The repository will gradually fill with daily experiments and UI components as the challenge progresses.
+The repository will gradually be filled with daily experiments and UI components as the challenge progresses.
+
+## Websites to Help You Master CSS Like a Pro
+
+- [Flexbox Froggy](https://flexboxfroggy.com/) – Learn Flexbox through interactive games.
+- [CSS Grid Garden](https://cssgridgarden.com/) – Practice CSS Grid in a fun way.
+- [CSS Diner](https://flukeout.github.io/) – Master CSS selectors with interactive challenges.
+- [CSSBattle](https://cssbattle.dev/play/17Bc6kIuAsiQgqP65moB) – Improve your CSS skills by recreating designs with minimal code.
+- [Guess CSS](https://www.guess-css.app/) – Test and sharpen your CSS knowledge through quizzes.
